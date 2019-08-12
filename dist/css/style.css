@@ -133,7 +133,8 @@ body {
 .copyright {
   color: #968B87;
   font-size: 1.2rem;
-  margin-top: auto; }
+  margin-top: auto;
+  text-align: center; }
 
 .link:link,
 .link:visited {

@@ -28,7 +28,7 @@ const controlSearch = async () => {
        await state.search.getResults();
 
         // 5. Render results on UI
-        clearLoader();
+        clearLoader();  
         searchView.renderResults(state.search.result);
     }
 }
@@ -38,6 +38,16 @@ elements.searchForm.addEventListener('submit', e => { // e = event object
     controlSearch();
 });
 
+// We have to use event delegations, since the buttons are not aviable on load
+elements.searchResPages.addEventListener('click', e => {
+    const btn = e.target.closest('.btn-inline'); // So that no matter where we click on the button (on the icon, or span) it will find the closest element with the btn-inline class
+
+    if (btn) {
+        const goToPage = parseInt(btn.dataset.goto, 10); // Reading from HTML attribute from data-goto-value, also conveet string to a number with the base number of 10
+        searchView.clearResults();
+        searchView.renderResults(state.search.result, goToPage);
+    }
+});
 
 
 

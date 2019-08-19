@@ -9,7 +9,16 @@ export const clearInput = () => {
 export const clearResults = () => {
     elements.searchResList.innerHTML = ''; //Clearing the entire HTML inside of this element
     elements.searchResPages.innerHTML = '';
-}
+};
+
+export const highlightSelected = id => {
+    const resultsArr = Array.from(document.querySelectorAll('.results__link'));
+    resultsArr.forEach(el => {
+        el.classList.remove('results__link--active');
+    });
+
+    document.querySelector(`a[href="#${id}"]`).classList.add('results__link--active'); // CSS selector: all links with href attribute containing #ID
+};
 
 /*
 // Example string: 'Pasta with tomato and spinach'

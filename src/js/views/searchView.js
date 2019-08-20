@@ -17,7 +17,7 @@ export const highlightSelected = id => {
         el.classList.remove('results__link--active');
     });
 
-    document.querySelector(`a[href="#${id}"]`).classList.add('results__link--active'); // CSS selector: all links with href attribute containing #ID
+    document.querySelector(`.results__link[href="#${id}"]`).classList.add('results__link--active'); // CSS selector: all links with href attribute containing #ID
 };
 
 /*
@@ -29,7 +29,7 @@ acc: 15 / acc + cur.length = 18(over the limit) / newTitle = ['Pasta', 'with', '
 acc: 18 / acc + cur.length = 24(over the limit) / newTitle = ['Pasta', 'with', 'tomato']
 */
 
-const limitRecipeTitle = (title, limit = 17) => {
+export const limitRecipeTitle = (title, limit = 17) => {
     const newTitle = [];
     if (title.length > limit) {
         title.split(' ').reduce((acc, cur) => { // Will return an array with just words of the title, which we then reduce with the accumulator and current arguments

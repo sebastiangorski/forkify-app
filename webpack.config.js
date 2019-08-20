@@ -5,6 +5,7 @@ module.exports = {
     entry: ['@babel/polyfill', './src/js/index.js'],
     output: {
         path: path.resolve(__dirname, 'dist'),
+        publicPath: "/forkify-app/",
         filename: 'js/bundle.js'
     },
     devServer: {
